@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earned Value Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Earned Value Calculator</h1>
+        <h3>Enter Your Project Metrics</h3>
+
+        <select id="theme">
+            <option value="light">Light Mode</option>
+            <option value="dark">Dark Mode</option>
+        </select>
+        
+        <select id="fontSize">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+
+        <form id="evc-form">
+            <label for="budget">Budget ($):</label>
+            <div class="tooltipInput">
+                <input type="number" id="budget" placeholder="Enter Budget" min="1" step="any" required>
+                <span class="tooltip-icon" data-tooltip="The total budget allocated for the project.">?</span>
+            </div>
+    
+            <label for="currentCosts">Current Costs ($):</label>
+            <div class="tooltipInput">
+                <input type="number" id="currentCosts" placeholder="Enter Current Costs" min="0" step="any" required>
+                <span class="tooltip-icon" data-tooltip="The actual costs incurred so far in the project.">?</span>
+            </div>
+            
+            <label for="scheduledProgress">Scheduled Progress (%):</label>
+            <div class="tooltipInput">
+                <input type="number" id="scheduledProgress" placeholder="Enter Scheduled Progress" min="0" max="100" step="any" required>
+                <span class="tooltip-icon" data-tooltip="The percentage of work that was planned to be completed by now.">?</span>
+            </div>
+
+            <label for="actualProgress">Actual Progress (%):</label>
+            <div class="tooltipInput">
+                <input type="number" id="actualProgress" placeholder="Enter Actual Progress" min="0" max="100" step="any" required>
+                <span class="tooltip-icon" data-tooltip="The percentage of work actually completed so far.">?</span>
+            </div>
+            
+            <button type="submit">Calculate</button>
+        </form>
+        
+        <div id="results" class="hidden">
+            <h2>Results</h2>
+            <p>Earned Value (EV): $<span id="ev"></span></p>
+            <p>Planned Value (PV): $<span id="pv"></span></p>
+            <p>Cost Performance Index (CPI): <span id="cpi"></span> — <span id="cpi-status"></span></p>
+            <p>Schedule Performance Index (SPI): <span id="spi"></span> — <span id="spi-status"></span></p>
+
+            <label>
+                <input type="checkbox" id="predictionCheckbox">
+                Display Predictions based on results
+            </label>
+
+        </div>
+
+        <div id="predictions" class="hidden">
+            <h2>Predictions</h2>
+            <p>Estimate Cost to Complete (ETC): $<span id="etc"></span></p>
+            <p>Estimate Cost at Completion (EAC): $<span id="eac"></span></p>
+        </div>
+
+        <div id="reportButton" class="hidden">
+            <button id="download-report">Download Report</button>
+        </div>
+            
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fefefa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    background-color: rgb(215, 215, 215);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#theme {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+#fontSize {
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex:1;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+p span {
+    font-weight: bold;
+}
+
+.tooltipInput {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Tooltip icon styling */
+.tooltip-icon {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    position: relative;
+    top:-5px;
+}
+
+/* Tooltip text styling */
+.tooltip-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Tooltip hover visibility */
+.tooltip-icon:hover::after,
+.tooltip-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: rgb(42, 42, 42);
+}
+
+.dark-mode .container {
+    background-color: rgb(141, 152, 156);
+}
+
+.small-font {
+    font-size: 12px;
+}
+
+.medium-font {
+    font-size: 16px;
+}
+
+.large-font {
+    font-size: 20px;
+}
